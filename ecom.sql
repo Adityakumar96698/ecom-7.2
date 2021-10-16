@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2021 at 08:30 PM
+-- Generation Time: Oct 16, 2021 at 12:52 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -89,7 +89,9 @@ CREATE TABLE `contact_us` (
 --
 
 INSERT INTO `contact_us` (`id`, `name`, `email`, `mobile`, `comment`, `added_on`) VALUES
-(1, 'Aditya', 'aditya@gmail.com', '1234567890', 'Test Query', '2021-09-24 01:12:00');
+(1, 'Aditya', 'aditya@gmail.com', '1234567890', 'Test Query', '2021-09-24 01:12:00'),
+(6, 'ak', 'ak@gmail.com', '7896541230', '\n    Select \n  ', '2021-10-16 11:20:43'),
+(7, 'gk', 'gk@gmail.com', '1452369870', '<select>\n    <option>Select</option>\n  </select>', '2021-10-16 11:32:02');
 
 -- --------------------------------------------------------
 
@@ -387,7 +389,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `order_detail`

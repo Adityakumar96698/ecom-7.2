@@ -1,7 +1,8 @@
 <?php 
 require('top.php');
 
-if(!isset($_GET['id']) && $_GET['id']!=''){
+if(!isset($_GET['id']) && $_GET['id']!='')
+{
 	?>
 	<script>
 	window.location.href='index.php';
@@ -9,38 +10,50 @@ if(!isset($_GET['id']) && $_GET['id']!=''){
 	<?php
 }
 
-$cat_id=mysqli_real_escape_string($con,$_GET['id']);
+$cat_id=get_safe_value($con,$_GET['id']);
 
 $sub_categories='';
-if(isset($_GET['sub_categories'])){
-	$sub_categories=mysqli_real_escape_string($con,$_GET['sub_categories']);
+if(isset($_GET['sub_categories']))
+{
+	$sub_categories=get_safe_value($con,$_GET['sub_categories']);
 }
 $price_high_selected="";
 $price_low_selected="";
 $new_selected="";
 $old_selected="";
 $sort_order="";
-if(isset($_GET['sort'])){
-	$sort=mysqli_real_escape_string($con,$_GET['sort']);
-	if($sort=="price_high"){
+if(isset($_GET['sort']))
+{
+	$sort=get_safe_value($con,$_GET['sort']);
+	if($sort=="price_high")
+	{
 		$sort_order=" order by product.price desc ";
 		$price_high_selected="selected";	
-	}if($sort=="price_low"){
+	}
+	if($sort=="price_low")
+	{
 		$sort_order=" order by product.price asc ";
 		$price_low_selected="selected";
-	}if($sort=="new"){
+	}
+	if($sort=="new")
+	{
 		$sort_order=" order by product.id desc ";
 		$new_selected="selected";
-	}if($sort=="old"){
+	}
+	if($sort=="old")
+	{
 		$sort_order=" order by product.id asc ";
 		$old_selected="selected";
 	}
 
 }
 
-if($cat_id>0 && ($sub_categories!='' && $sub_categories>0)){
+if($cat_id>0 && ($sub_categories!='' && $sub_categories>0))
+{
 	$get_product=get_product($con,'',$cat_id,'','',$sort_order,'',$sub_categories);
-}else{
+}
+else
+{
 	?>
 	<script>
 	window.location.href='index.php';
